@@ -15,5 +15,14 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000', // Change this to your backend URL in development
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })
 
